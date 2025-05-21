@@ -16,7 +16,6 @@
     }
     header .logo { font-size:1.5rem; font-weight:bold; }
     nav ul { display:flex; gap:1.5rem; list-style:none; }
-    nav a { color:inherit; }
 
     .hero {
       margin-top:4.5rem; padding:4rem 2rem; text-align:center;
@@ -39,16 +38,10 @@
     }
     .games-grid {
       display:grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap:2rem;
       max-width:1200px;
       margin:0 auto;
-    }
-    @media (max-width: 900px) {
-      .games-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 600px) {
-      .games-grid { grid-template-columns: 1fr; }
     }
 
     .game-card {
@@ -58,23 +51,28 @@
       overflow: hidden;
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
       transition: transform .2s, box-shadow .2s;
+      display: flex;
+      flex-direction: column;
     }
     .game-card:hover {
       transform: translateY(-6px);
       box-shadow: 0 8px 20px rgba(0,0,0,0.12);
     }
-    .game-card .label {
+
+    /* giữ tỉ lệ 1:1 cho ảnh */
+    .game-card .img-wrapper {
+      width: 100%;
+      padding-top: 100%; /* tạo box vuông */
+      position: relative;
+    }
+    .game-card .img-wrapper img {
       position: absolute;
-      top: 12px; left: 12px;
-      background: rgba(0,0,0,0.7);
-      color: #fff; font-size: .75rem; padding: .25rem .5rem;
-      border-radius: 4px;
-      text-transform: uppercase;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
-    .game-card img {
-      width: 100%; height: 140px; object-fit: cover;
-      display: block;
-    }
+
     .game-card .info {
       padding: 1rem;
       text-align: center;
@@ -86,10 +84,10 @@
       font-size:.95rem; color:#666;
       min-height:40px;
     }
-    .game-card .store-buttons {
+    .store-buttons {
       margin-top:1rem; display:flex; justify-content:center; gap:.5rem;
     }
-    .game-card .store-buttons a {
+    .store-buttons a {
       font-size:.85rem; padding:.4rem .8rem; border-radius:4px;
       color:#fff; text-decoration:none; transition:opacity .2s;
     }
@@ -97,9 +95,13 @@
     .store-play { background:#34a853; }
     .store-ios:hover, .store-play:hover { opacity:.8; }
 
+    /* Services */
+    .services-grid { display:grid; gap:1.2rem; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); padding:4rem 2rem; }
+    .service-card { padding:1.1rem; border-radius:12px; background:#FFF5F8; text-align:center; transition:background .2s; }
+    .service-card:hover { background:#FFECF4; }
+
     footer {
-      text-align:center; padding:2rem; background:#f9f9f9;
-      margin-top:2rem;
+      text-align:center; padding:2rem; background:#f9f9f9; margin-top:2rem;
     }
     footer .social a { margin:0 .5rem; color:#555; }
   </style>
@@ -131,54 +133,82 @@
   <section id="games" class="games-section">
     <h2 class="section-title">Our Games</h2>
     <div class="games-grid">
-      <!-- Card 1 -->
+      <!-- Giữ nguyên tất cả các game-card như cũ, chỉ chèn .img-wrapper -->
       <div class="game-card">
-        <div class="label">Puzzle</div>
-        <img src="https://play-lh.googleusercontent.com/WUQEQgrROQkZ0GOZbWId_yPAYylcIR84U60xxu8HN4MZ9XV1a5VY0ZN1nBmH2cJjtwKU=w240-h480-rw"
-             alt="Candy Block Blast – Pop Puzzle">
+        <div class="img-wrapper">
+          <img src="thumbnail1.jpg" alt="Game Title 1">
+        </div>
         <div class="info">
-          <h3>Candy Block Blast</h3>
-          <p>Pop matching blocks for sweet combos!</p>
+          <h3>Game Title 1</h3>
+          <p>Short tagline for game 1.</p>
           <div class="store-buttons">
-            <a href="https://apps.apple.com/app/id0000000000" class="store-ios" target="_blank">iOS</a>
-            <a href="https://play.google.com/store/apps/details?id=com.candy.block.blast" class="store-play" target="_blank">Android</a>
+            <a class="store-ios" href="#">iOS</a>
+            <a class="store-play" href="#">Android</a>
           </div>
         </div>
       </div>
-      <!-- Card 2 -->
+
       <div class="game-card">
-        <div class="label">Arcade</div>
-        <img src="https://play-lh.googleusercontent.com/FpSnR7g1LoPEZAtQaZ-2WrJkAO0Qy7MAXGznO8GWd2EyRNIoylz3FmE4n8Vpj8JWkEw=w240-h480-rw"
-             alt="Jelly Block Pop">
+        <div class="img-wrapper">
+          <img src="thumbnail2.jpg" alt="Game Title 2">
+        </div>
         <div class="info">
-          <h3>Jelly Block Pop</h3>
-          <p>Help Coconut the cat free the jellies!</p>
+          <h3>Game Title 2</h3>
+          <p>Short tagline for game 2.</p>
           <div class="store-buttons">
-            <a href="https://apps.apple.com/app/id0000000001" class="store-ios" target="_blank">iOS</a>
-            <a href="https://play.google.com/store/apps/details?id=com.jelly.block.pop" class="store-play" target="_blank">Android</a>
+            <a class="store-ios" href="#">iOS</a>
+            <a class="store-play" href="#">Android</a>
           </div>
         </div>
       </div>
-      <!-- Card 3 -->
+
       <div class="game-card">
-        <div class="label">Adventure</div>
-        <img src="https://play-lh.googleusercontent.com/eB9IaxuIX9SEUhhyZOsTyWZUPXp641KUNXynAiZ0KthrwToBU8UZORJQXteu8xSFhhSM=w240-h480-rw"
-             alt="TWICE Adventure 2: Worlds">
+        <div class="img-wrapper">
+          <img src="thumbnail3.jpg" alt="Game Title 3">
+        </div>
         <div class="info">
-          <h3>TWICE Adventure 2</h3>
-          <p>Join TWICE on a brand-new journey across worlds.</p>
+          <h3>Game Title 3</h3>
+          <p>Short tagline for game 3.</p>
           <div class="store-buttons">
-            <a href="https://apps.apple.com/app/id0000000003" class="store-ios" target="_blank">iOS</a>
-            <a href="https://play.google.com/store/apps/details?id=com.twice.adventure2" class="store-play" target="_blank">Android</a>
+            <a class="store-ios" href="#">iOS</a>
+            <a class="store-play" href="#">Android</a>
           </div>
         </div>
       </div>
-      <!-- Thêm các game khác tương tự -->
+
+      <div class="game-card">
+        <div class="img-wrapper">
+          <img src="thumbnail4.jpg" alt="Game Title 4">
+        </div>
+        <div class="info">
+          <h3>Game Title 4</h3>
+          <p>Short tagline for game 4.</p>
+          <div class="store-buttons">
+            <a class="store-ios" href="#">iOS</a>
+            <a class="store-play" href="#">Android</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="game-card">
+        <div class="img-wrapper">
+          <img src="thumbnail5.jpg" alt="Game Title 5">
+        </div>
+        <div class="info">
+          <h3>Game Title 5</h3>
+          <p>Short tagline for game 5.</p>
+          <div class="store-buttons">
+            <a class="store-ios" href="#">iOS</a>
+            <a class="store-play" href="#">Android</a>
+          </div>
+        </div>
+      </div>
+      <!-- ... -->
     </div>
   </section>
 
   <!-- Services -->
-  <section id="services" style="padding:4rem 2rem;">
+  <section id="services">
     <h2 class="section-title">Services</h2>
     <div class="services-grid">
       <div class="service-card"><h3>Game Design</h3><p>Concept, mechanics & prototyping.</p></div>
@@ -190,9 +220,6 @@
   <!-- Footer -->
   <footer>
     <p>© 2025 CoolKats Studio</p>
-    <div class="social">
-      <a href="#">FB</a><a href="#">TW</a><a href="#">IG</a><a href="#">LI</a>
-    </div>
   </footer>
 
 </body>
