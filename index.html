@@ -85,13 +85,24 @@
     }
 
     .store-buttons {
-      margin-top: 1rem; display: flex;
-      justify-content: center; gap: .5rem;
+      margin-top: 1rem; 
+      display: flex;
+      justify-content: center; 
+      gap: .5rem;
+      min-height: 32px; /* Set minimum height for consistent alignment */
     }
     .store-buttons a {
-      font-size: .85rem; padding: .4rem .8rem;
-      border-radius: 4px; color: #fff;
-      text-decoration: none; transition: opacity .2s;
+      font-size: .85rem; 
+      padding: .4rem .8rem;
+      border-radius: 4px; 
+      color: #fff;
+      text-decoration: none; 
+      transition: opacity .2s;
+      height: 32px; /* Fixed height for all buttons */
+      line-height: 24px; /* Center text vertically */
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .store-play { background: #34a853; }
     .store-ios { background: #333; }
@@ -212,7 +223,7 @@
         </div>
         <div class="info">
           <h3>TWICE Adventure 2: Worlds</h3>
-          <p>Continue the story of TWICE girls with the power of the CandyBong to new worlds of magic—let’s go have an adventure!</p>
+          <p>Continue the story of TWICE girls with the power of the CandyBong to new worlds of magic—let's go have an adventure!</p>
           <div class="store-buttons">
             <a href="https://play.google.com/store/apps/details?id=com.once.twadvworlds"
                class="store-play" target="_blank">Android</a>
