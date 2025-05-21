@@ -43,13 +43,17 @@
     }
     .games-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
-      max-width: 1200px;
+      max-width: 1100px;
       margin: 0 auto;
     }
 
     .game-card {
+      min-width: 0;
+      max-width: 340px;
+      margin: 0 auto;
+      height: 420px;
       position: relative;
       background: #fff; border-radius: 16px;
       overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08);
@@ -64,7 +68,7 @@
     /* Square image wrapper */
     .img-wrapper {
       width: 100%;
-      padding-top: 100%; /* 1:1 aspect ratio */
+      padding-top: 60%; /* giảm chiều cao ảnh */
       position: relative;
     }
     .img-wrapper img {
@@ -74,7 +78,11 @@
     }
 
     .info {
-      padding: 1rem; text-align: center;
+      padding: 0.7rem 1rem 0.5rem 1rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
     }
     .info h3 {
       font-size: 1.1rem; margin-bottom: .5rem;
@@ -84,30 +92,62 @@
       min-height: 40px;
     }
 
-    .store-buttons {
-      margin-top: 1rem; 
-      display: flex;
-      justify-content: center; 
-      gap: .5rem;
-      min-height: 32px; /* Set minimum height for consistent alignment */
-    }
-    .store-buttons a {
-      font-size: .85rem; 
-      padding: .4rem .8rem;
-      border-radius: 4px; 
+    .store-btn {
+      background: #2A4759;
       color: #fff;
-      text-decoration: none; 
-      transition: opacity .2s;
-      height: 32px; /* Fixed height for all buttons */
-      line-height: 24px; /* Center text vertically */
+      border: none;
+      border-radius: 14px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      min-width: 180px;
+      margin: 4px 0;
+      font-family: inherit;
+      font-weight: 500;
+      box-sizing: border-box;
       display: flex;
       align-items: center;
+      padding: 8px 20px 8px 14px;
+    }
+    .store-btn:hover,
+    .store-btn:hover .big,
+    .store-btn:hover .small {
+      background: #3b5c72;
+      color: #fff;
+    }
+    .store-btn .icon {
+      display: flex;
+      align-items: center;
+      margin-right: 14px;
+    }
+    .store-btn .icon svg, .store-btn .icon img {
+      filter: none;
+    }
+    .store-btn .text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      line-height: 1.1;
+    }
+    .store-btn .small {
+      font-size: 0.8rem;
+      opacity: 0.85;
+      line-height: 1;
+    }
+    .store-btn .big {
+      font-size: 1.15rem;
+      font-weight: bold;
+      line-height: 1.1;
+    }
+    .store-buttons {
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 0.7rem;
+      margin-top: auto;
+      display: flex;
+      min-height: 32px;
       justify-content: center;
     }
-    .store-play { background: #34a853; }
-    .store-ios { background: #333; }
-    .store-play:hover,
-    .store-ios:hover { opacity: .8; }
 
     /* Services */
     .services-section {
@@ -137,6 +177,15 @@
     @media (max-width: 600px) {
       .hero h1 { font-size: 2rem; }
     }
+
+    /* New CSS for .store-steam */
+    .store-steam { background: #171a21; }
+    .store-steam:hover { opacity: .8; }
+
+    .store-btn,
+    .store-btn * {
+      text-decoration: none !important;
+    }
   </style>
 </head>
 <body>
@@ -158,7 +207,7 @@
     <h1>We Build Sweet &amp; Addictive Games</h1>
     <p>An indie studio specializing in casual &amp; hyper-casual mobile games.</p>
     <div class="buttons">
-      <a href="#games">Our Portfolio</a>
+      
     </div>
   </section>
 
@@ -176,10 +225,17 @@
         <div class="info">
           <h3>Candy Block Blast – Pop Puzzle</h3>
           <p>Drag and drop colorful candy blocks to fill rows or columns and clear for high–score in this addictive endless puzzle!</p>
-          <div class="store-buttons">
-            <a href="https://play.google.com/store/apps/details?id=com.coolkats.candyblockblast"
-               class="store-play" target="_blank">Android</a>
-          </div>
+        </div>
+        <div class="store-buttons">
+          <a href="https://play.google.com/store/apps/details?id=com.coolkats.candyblockblast" class="store-btn googleplay" target="_blank">
+            <span class="icon">
+              <img src="images/play_store_app_icon.svg" alt="Google Play" style="width:32px;height:32px;object-fit:contain;display:block;"/>
+            </span>
+            <span class="text">
+              <span class="small">GET IT ON</span>
+              <span class="big">Google Play</span>
+            </span>
+          </a>
         </div>
       </div>
 
@@ -192,10 +248,17 @@
         <div class="info">
           <h3>Jelly Block Pop</h3>
           <p>Slide, pop, and match colorful jelly blocks in this relaxing and addictive puzzle game!</p>
-          <div class="store-buttons">
-            <a href="https://play.google.com/store/apps/details?id=com.coolkats.jellyblockpop"
-               class="store-play" target="_blank">Android</a>
-          </div>
+        </div>
+        <div class="store-buttons">
+          <a href="https://play.google.com/store/apps/details?id=com.coolkats.jellyblockpop" class="store-btn googleplay" target="_blank">
+            <span class="icon">
+              <img src="images/play_store_app_icon.svg" alt="Google Play" style="width:32px;height:32px;object-fit:contain;display:block;"/>
+            </span>
+            <span class="text">
+              <span class="small">GET IT ON</span>
+              <span class="big">Google Play</span>
+            </span>
+          </a>
         </div>
       </div>
 
@@ -208,10 +271,17 @@
         <div class="info">
           <h3>Cat Chaos</h3>
           <p>Be naughty like a cat—aim and shoot the ball to break all the stuff in cute, cool puzzles.</p>
-          <div class="store-buttons">
-            <a href="https://play.google.com/store/apps/details?id=com.wizonce.catchaos"
-               class="store-play" target="_blank">Android</a>
-          </div>
+        </div>
+        <div class="store-buttons">
+          <a href="https://play.google.com/store/apps/details?id=com.wizonce.catchaos" class="store-btn googleplay" target="_blank">
+            <span class="icon">
+              <img src="images/play_store_app_icon.svg" alt="Google Play" style="width:32px;height:32px;object-fit:contain;display:block;"/>
+            </span>
+            <span class="text">
+              <span class="small">GET IT ON</span>
+              <span class="big">Google Play</span>
+            </span>
+          </a>
         </div>
       </div>
 
@@ -224,10 +294,17 @@
         <div class="info">
           <h3>TWICE Adventure 2: Worlds</h3>
           <p>Continue the story of TWICE girls with the power of the CandyBong to new worlds of magic—let's go have an adventure!</p>
-          <div class="store-buttons">
-            <a href="https://play.google.com/store/apps/details?id=com.once.twadvworlds"
-               class="store-play" target="_blank">Android</a>
-          </div>
+        </div>
+        <div class="store-buttons">
+          <a href="https://play.google.com/store/apps/details?id=com.once.twadvworlds" class="store-btn googleplay" target="_blank">
+            <span class="icon">
+              <img src="images/play_store_app_icon.svg" alt="Google Play" style="width:32px;height:32px;object-fit:contain;display:block;"/>
+            </span>
+            <span class="text">
+              <span class="small">GET IT ON</span>
+              <span class="big">Google Play</span>
+            </span>
+          </a>
         </div>
       </div>
 
@@ -240,12 +317,48 @@
         <div class="info">
           <h3>TWICE Adventure: Prologue</h3>
           <p>Join TWICE girls on a cheerful adventure powered by the Candy Bong!</p>
-          <div class="store-buttons">
-            <a href="https://apps.apple.com/es/app/once-adventure/id1618915589"
-               class="store-ios" target="_blank">iOS</a>
-            <a href="https://play.google.com/store/apps/details?id=com.once.twiceadvpr"
-               class="store-play" target="_blank">Android</a>
-          </div>
+        </div>
+        <div class="store-buttons">
+          <a href="https://apps.apple.com/es/app/once-adventure/id1618915589" class="store-btn appstore" target="_blank">
+            <span class="icon">
+              <img src="images/app store_apps_icon.svg" alt="App Store" style="width:32px;height:32px;object-fit:contain;display:block;"/>
+            </span>
+            <span class="text">
+              <span class="small">Download on the</span>
+              <span class="big">App Store</span>
+            </span>
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.once.twiceadvpr" class="store-btn googleplay" target="_blank">
+            <span class="icon">
+              <img src="images/play_store_app_icon.svg" alt="Google Play" style="width:32px;height:32px;object-fit:contain;display:block;"/>
+            </span>
+            <span class="text">
+              <span class="small">GET IT ON</span>
+              <span class="big">Google Play</span>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <!-- LyokoVR -->
+      <div class="game-card">
+        <div class="img-wrapper">
+          <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1735860/header.jpg" alt="LyokoVR">
+        </div>
+        <div class="info">
+          <h3>LyokoVR</h3>
+          <p>LyokoVR là game VR fanmade tiếp nối câu chuyện Code Lyoko, nhập vai các chiến binh Lyoko chống lại X.A.N.A trong thế giới ảo.</p>
+        </div>
+        <div class="store-buttons">
+          <a href="https://store.steampowered.com/app/1735860/LyokoVR/" class="store-btn steam" target="_blank">
+            <span class="icon">
+              <img src="images/steam_icon.svg" alt="Steam" style="width:32px;height:32px;object-fit:contain;display:block;"/>
+            </span>
+            <span class="text">
+              <span class="small">GET IT ON</span>
+              <span class="big">Steam</span>
+            </span>
+          </a>
         </div>
       </div>
 
