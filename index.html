@@ -1,3 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CoolKats Studio</title>
+  <style>
+    /* Reset & basic */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', sans-serif; color: #333; background: #fafafa; }
+
+    /* Header */
+    header {
+      position: fixed; top: 0; left: 0; width: 100%;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 2rem; background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(5px); box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      z-index: 100;
+    }
+    header .logo { font-size: 1.5rem; font-weight: bold; }
+    nav ul { display: flex; gap: 1.5rem; list-style: none; }
+    nav a { color: inherit; text-decoration: none; }
+
+    /* Hero */
+    .hero {
+      margin-top: 4.5rem; padding: 4rem 2rem; text-align: center;
+      background: linear-gradient(135deg, #FFD3E2, #FFEFD1);
+    }
+    .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+    .hero p { font-size: 1.1rem; margin-bottom: 2rem; }
+    .hero .buttons a {
+      display: inline-block; margin: 0 .5rem; padding: .75rem 1.5rem;
+      background: #FF8CC6; color: #fff; border-radius: 5px;
+    }
+
+    /* Our Games section */
+    .games-section {
+      padding: 4rem 2rem;
+      background: linear-gradient(135deg, #f0f8ff 0%, #e6e6ff 100%);
+    }
+    .section-title {
+      text-align: center; font-size: 1.8rem; margin-bottom: 2rem;
+    }
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .game-card {
+      position: relative;
+      background: #fff; border-radius: 16px;
+      overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform .2s, box-shadow .2s;
+      display: flex; flex-direction: column;
+    }
+    .game-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+
+    /* Square image wrapper */
+    .img-wrapper {
+      width: 100%;
+      padding-top: 100%; /* 1:1 aspect ratio */
+      position: relative;
+    }
+    .img-wrapper img {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+
+    .info {
+      padding: 1rem; text-align: center;
+    }
+    .info h3 {
+      font-size: 1.1rem; margin-bottom: .5rem;
+    }
+    .info p {
+      font-size: .95rem; color: #666;
+      min-height: 40px;
+    }
+
+    .store-buttons {
+      margin-top: 1rem; display: flex;
+      justify-content: center; gap: .5rem;
+    }
+    .store-buttons a {
+      font-size: .85rem; padding: .4rem .8rem;
+      border-radius: 4px; color: #fff;
+      text-decoration: none; transition: opacity .2s;
+    }
+    .store-play { background: #34a853; }
+    .store-play:hover { opacity: .8; }
+
+    /* Services */
+    .services-section {
+      padding: 4rem 2rem;
+    }
+    .services-grid {
+      display: grid; gap: 1.2rem;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      max-width: 1000px; margin: 0 auto;
+    }
+    .service-card {
+      padding: 1.1rem; border-radius: 12px;
+      background: #FFF5F8; text-align: center;
+      transition: background .2s;
+    }
+    .service-card:hover { background: #FFECF4; }
+
+    /* Footer */
+    footer {
+      text-align: center; padding: 2rem;
+      background: #f9f9f9; margin-top: 2rem;
+    }
+    footer .social a {
+      margin: 0 .5rem; color: #555; text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">🍬 CoolKats Studio</div>
+    <nav>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#games">Games</a></li>
+        <li><a href="#services">Services</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <h1>We Build Sweet &amp; Addictive Games</h1>
+    <p>An indie studio specializing in casual &amp; hyper-casual mobile games.</p>
+    <div class="buttons">
+      <a href="#games">Our Portfolio</a>
+    </div>
+  </section>
+
   <!-- Our Games -->
   <section id="games" class="games-section">
     <h2 class="section-title">Our Games</h2>
@@ -13,7 +164,8 @@
           <h3>Candy Block Blast – Pop Puzzle</h3>
           <p>Drag and drop colorful candy blocks to fill rows or columns and clear for high–score in this addictive endless puzzle!</p>
           <div class="store-buttons">
-            <a href="https://play.google.com/store/apps/details?id=com.coolkats.candyblockblast" class="store-play" target="_blank">Android</a>
+            <a href="https://play.google.com/store/apps/details?id=com.coolkats.candyblockblast"
+               class="store-play" target="_blank">Android</a>
           </div>
         </div>
       </div>
@@ -26,9 +178,10 @@
         </div>
         <div class="info">
           <h3>Jelly Block Pop</h3>
-          <p>Welcome to Jelly Block Pop! Slide, pop, and match colorful jelly blocks in this relaxing and addictive puzzle game!</p>
+          <p>Slide, pop, and match colorful jelly blocks in this relaxing and addictive puzzle game!</p>
           <div class="store-buttons">
-            <a href="https://play.google.com/store/apps/details?id=com.coolkats.jellyblockpop" class="store-play" target="_blank">Android</a>
+            <a href="https://play.google.com/store/apps/details?id=com.coolkats.jellyblockpop"
+               class="store-play" target="_blank">Android</a>
           </div>
         </div>
       </div>
@@ -41,9 +194,10 @@
         </div>
         <div class="info">
           <h3>Cat Chaos</h3>
-          <p>Welcome to Cat Chaos! Be naughty like a cat—aim and shoot the ball to break all the stuff in cute, cool puzzles.</p>
+          <p>Be naughty like a cat—aim and shoot the ball to break all the stuff in cute, cool puzzles.</p>
           <div class="store-buttons">
-            <a href="https://play.google.com/store/apps/details?id=com.wizonce.catchaos" class="store-play" target="_blank">Android</a>
+            <a href="https://play.google.com/store/apps/details?id=com.wizonce.catchaos"
+               class="store-play" target="_blank">Android</a>
           </div>
         </div>
       </div>
@@ -56,9 +210,10 @@
         </div>
         <div class="info">
           <h3>TWICE Adventure 2: Worlds</h3>
-          <p>Continue the story of TWICE girls with the power of the CandyBong to new worlds of magic – let’s go have an adventure!</p>
+          <p>Continue the story of TWICE girls with the power of the CandyBong to new worlds of magic—let’s go have an adventure!</p>
           <div class="store-buttons">
-            <a href="https://play.google.com/store/apps/details?id=com.once.twadvworlds" class="store-play" target="_blank">Android</a>
+            <a href="https://play.google.com/store/apps/details?id=com.once.twadvworlds"
+               class="store-play" target="_blank">Android</a>
           </div>
         </div>
       </div>
@@ -73,10 +228,44 @@
           <h3>TWICE Adventure: Prologue</h3>
           <p>Join TWICE girls on a cheerful adventure powered by the Candy Bong!</p>
           <div class="store-buttons">
-            <a href="https://play.google.com/store/apps/details?id=com.once.twiceadvpr" class="store-play" target="_blank">Android</a>
+            <a href="https://play.google.com/store/apps/details?id=com.once.twiceadvpr"
+               class="store-play" target="_blank">Android</a>
           </div>
         </div>
       </div>
 
     </div>
   </section>
+
+  <!-- Services -->
+  <section id="services" class="services-section">
+    <h2 class="section-title">Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Game Design</h3>
+        <p>Concept, mechanics &amp; prototyping.</p>
+      </div>
+      <div class="service-card">
+        <h3>UI/UX &amp; 2D Art</h3>
+        <p>Icons, sprites &amp; animations.</p>
+      </div>
+      <div class="service-card">
+        <h3>Unity Development</h3>
+        <p>C# scripting &amp; optimization.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 CoolKats Studio</p>
+    <div class="social">
+      <a href="#">FB</a>
+      <a href="#">TW</a>
+      <a href="#">IG</a>
+      <a href="#">LI</a>
+    </div>
+  </footer>
+
+</body>
+</html>
