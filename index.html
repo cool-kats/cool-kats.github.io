@@ -40,20 +40,43 @@
 
     /* Portfolio */
     .games-grid {
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(3, 1fr);
-}
-@media (max-width: 900px) {
-  .games-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 600px) {
-  .games-grid { grid-template-columns: 1fr; }
-}
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: 900px) {
+      .games-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .games-grid { grid-template-columns: 1fr; }
+    }
     .game-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: transform .2s; }
     .game-card:hover { transform: translateY(-5px); }
     .game-card img { width: 100%; height: auto; display: block; }
     .game-card .info { padding: 1rem; }
+
+    /* Store buttons */
+    .store-buttons {
+      margin-top: 1rem;
+      display: flex;
+      gap: 0.5rem;
+    }
+    .store-buttons a {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      background: #0070f3;
+      color: #fff;
+      font-size: 0.95rem;
+      transition: background 0.2s;
+    }
+    .store-buttons a.ios {
+      background: #333;
+    }
+    .store-buttons a.play {
+      background: #34a853;
+    }
+    .store-buttons a:hover { opacity: 0.85; }
 
     /* Services */
     .services-grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); }
@@ -100,35 +123,55 @@
         <img src="https://play-lh.googleusercontent.com/WUQEQgrROQkZ0GOZbWId_yPAYylcIR84U60xxu8HN4MZ9XV1a5VY0ZN1nBmH2cJjtwKU=w240-h480-rw" alt="Candy Block Blast – Pop Puzzle" />
         <div class="info">
           <h3>Candy Block Blast – Pop Puzzle</h3>
-          <p>Pop matching blocks for sweet combos! :contentReference[oaicite:0]{index=0}</p>
+          <p>Pop matching blocks for sweet combos!</p>
+          <div class="store-buttons">
+            <a class="ios" href="https://apps.apple.com/app/id0000000000" target="_blank">iOS Store</a>
+            <a class="play" href="https://play.google.com/store/apps/details?id=com.candy.block.blast" target="_blank">Play Store</a>
+          </div>
         </div>
       </div>
       <div class="game-card">
         <img src="https://play-lh.googleusercontent.com/FpSnR7g1LoPEZAtQaZ-2WrJkAO0Qy7MAXGznO8GWd2EyRNIoylz3FmE4n8Vpj8JWkEw=w240-h480-rw" alt="Jelly Block Pop" />
         <div class="info">
           <h3>Jelly Block Pop</h3>
-          <p>Help Coconut the cat free the jellies! :contentReference[oaicite:1]{index=1}</p>
+          <p>Help Coconut the cat free the jellies!</p>
+          <div class="store-buttons">
+            <a class="ios" href="https://apps.apple.com/app/id0000000001" target="_blank">iOS Store</a>
+            <a class="play" href="https://play.google.com/store/apps/details?id=com.jelly.block.pop" target="_blank">Play Store</a>
+          </div>
         </div>
       </div>
       <div class="game-card">
         <img src="https://play-lh.googleusercontent.com/jNpsdlxoqoTrMYRiTcZQd5C8TAPp1ccgMNHOmsc-tbeKGDFBxRzdHNxY2xPWcIjxvDTw=s48-rw" alt="Cat Chaos" />
         <div class="info">
           <h3>Cat Chaos</h3>
-          <p>A guide to the ultimate CATastrophe! :contentReference[oaicite:2]{index=2}</p>
+          <p>A guide to the ultimate CATastrophe!</p>
+          <div class="store-buttons">
+            <a class="ios" href="https://apps.apple.com/app/id0000000002" target="_blank">iOS Store</a>
+            <a class="play" href="https://play.google.com/store/apps/details?id=com.cat.chaos" target="_blank">Play Store</a>
+          </div>
         </div>
       </div>
       <div class="game-card">
         <img src="https://play-lh.googleusercontent.com/eB9IaxuIX9SEUhhyZOsTyWZUPXp641KUNXynAiZ0KthrwToBU8UZORJQXteu8xSFhhSM=w240-h480-rw" alt="TWICE Adventure 2: Worlds" />
         <div class="info">
           <h3>TWICE Adventure 2: Worlds</h3>
-          <p>Join TWICE on a brand-new journey across worlds. :contentReference[oaicite:3]{index=3}</p>
+          <p>Join TWICE on a brand-new journey across worlds.</p>
+          <div class="store-buttons">
+            <a class="ios" href="https://apps.apple.com/app/id0000000003" target="_blank">iOS Store</a>
+            <a class="play" href="https://play.google.com/store/apps/details?id=com.twice.adventure2" target="_blank">Play Store</a>
+          </div>
         </div>
       </div>
       <div class="game-card">
         <img src="https://play-lh.googleusercontent.com/9TV1ojpxDF6ooX8OziiMrFxGEIigp9i9H41q3_ubq30YBKqtLyfUDDTyxK33_68W4Tr1=w240-h480-rw" alt="TWICE Adventure: Prologue" />
         <div class="info">
           <h3>TWICE Adventure: Prologue</h3>
-          <p>Start the adventure with TWICE’s Prologue chapter. :contentReference[oaicite:4]{index=4}</p>
+          <p>Start the adventure with TWICE’s Prologue chapter.</p>
+          <div class="store-buttons">
+            <a class="ios" href="https://apps.apple.com/app/id0000000004" target="_blank">iOS Store</a>
+            <a class="play" href="https://play.google.com/store/apps/details?id=com.twice.adventureprologue" target="_blank">Play Store</a>
+          </div>
         </div>
       </div>
     </div>
