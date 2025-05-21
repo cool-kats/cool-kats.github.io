@@ -5,12 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CoolKats Studio</title>
   <style>
-    /* Reset & basic */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; color: #333; }
     a { text-decoration: none; color: inherit; }
 
-    /* Header */
     header { 
       position: fixed; top: 0; left: 0; width: 100%; 
       display: flex; justify-content: space-between; align-items: center;
@@ -21,7 +19,6 @@
     nav ul { display: flex; gap: 1.5rem; list-style: none; }
     nav li { cursor: pointer; }
 
-    /* Hero */
     .hero {
       margin-top: 4.5rem;
       padding: 4rem 2rem; text-align: center;
@@ -34,15 +31,15 @@
       background: #FF8CC6; color: #fff; border-radius: 5px;
     }
 
-    /* Sections */
     section { padding: 4rem 2rem; }
     .section-title { font-size: 1.8rem; margin-bottom: 1.5rem; text-align: center; }
 
-    /* Portfolio */
+    /* Games grid */
     .games-grid {
       display: grid;
       gap: 1.5rem;
       grid-template-columns: repeat(3, 1fr);
+      justify-items: center;
     }
     @media (max-width: 900px) {
       .games-grid { grid-template-columns: repeat(2, 1fr); }
@@ -50,40 +47,67 @@
     @media (max-width: 600px) {
       .games-grid { grid-template-columns: 1fr; }
     }
-    .game-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: transform .2s; }
+    .game-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.11);
+      transition: transform .2s;
+      max-width: 220px;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
     .game-card:hover { transform: translateY(-5px); }
-    .game-card img { width: 100%; height: auto; display: block; }
-    .game-card .info { padding: 1rem; }
+    .game-card img {
+      width: 100%;
+      max-width: 220px;
+      height: 120px;
+      object-fit: cover;
+      display: block;
+    }
+    .game-card .info {
+      padding: 0.7rem 0.7rem 0.5rem 0.7rem;
+      text-align: center;
+    }
+    .game-card .info h3 {
+      font-size: 1.08rem;
+      margin-bottom: 0.3rem;
+    }
+    .game-card .info p {
+      font-size: 0.95rem;
+      min-height: 38px;
+    }
 
     /* Store buttons */
     .store-buttons {
-      margin-top: 1rem;
+      margin-top: 0.7rem;
       display: flex;
-      gap: 0.5rem;
+      gap: 0.4rem;
+      justify-content: center;
     }
     .store-buttons a {
       display: inline-block;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
+      padding: 0.38rem 0.8rem;
+      border-radius: 5px;
       background: #0070f3;
       color: #fff;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       transition: background 0.2s;
+      min-width: 73px;
+      text-align: center;
     }
-    .store-buttons a.ios {
-      background: #333;
-    }
-    .store-buttons a.play {
-      background: #34a853;
-    }
+    .store-buttons a.ios { background: #333; }
+    .store-buttons a.play { background: #34a853; }
     .store-buttons a:hover { opacity: 0.85; }
 
     /* Services */
-    .services-grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); }
-    .service-card { padding: 1.5rem; border-radius: 12px; background: #FFF5F8; text-align: center; transition: background .2s; }
+    .services-grid { display: grid; gap: 1.2rem; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); }
+    .service-card { padding: 1.1rem; border-radius: 12px; background: #FFF5F8; text-align: center; transition: background .2s; }
     .service-card:hover { background: #FFECF4; }
 
-    /* Footer */
     footer { text-align: center; padding: 2rem; background: #f9f9f9; }
     footer .social a { margin: 0 0.5rem; }
 
@@ -193,7 +217,6 @@
         <h3>Unity Development</h3>
         <p>C# scripting, optimization & deployment.</p>
       </div>
-      <!-- More service cards -->
     </div>
   </section>
 
