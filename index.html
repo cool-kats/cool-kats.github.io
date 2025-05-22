@@ -54,34 +54,119 @@
     /* Hero */
     .hero {
       margin-top: 4.5rem;
-      padding: 4rem 2rem;
+      padding: 6rem 2rem;
       text-align: center;
       background: linear-gradient(135deg, #FFD3E2, #FFEFD1);
       background-image: url('images/bg1.png');
-      /* Thêm dòng này */
       background-size: cover;
-      /* Đảm bảo ảnh phủ kín */
       background-position: center;
-      /* Căn giữa ảnh */
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(2px);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
     .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      color: #2A4759;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
     }
 
     .hero p {
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
+      font-size: 1.3rem;
+      margin-bottom: 2.5rem;
+      color: #4A4A4A;
     }
 
-    .hero .buttons a {
-      display: inline-block;
-      margin: 0 .5rem;
-      padding: .75rem 1.5rem;
-      background: #FF8CC6;
+    .buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .store-btn {
+      background: #2A4759;
       color: #fff;
-      border-radius: 5px;
+      border: none;
+      border-radius: 14px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      min-width: 180px;
+      margin: 4px 0;
+      font-family: inherit;
+      font-weight: 500;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      padding: 8px 20px 8px 14px;
+      text-decoration: none;
+    }
+
+    .store-btn:hover {
+      background: #3b5c72;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .store-btn .icon {
+      display: flex;
+      align-items: center;
+      margin-right: 14px;
+    }
+
+    .store-btn .text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      line-height: 1.1;
+    }
+
+    .store-btn .small {
+      font-size: 0.8rem;
+      opacity: 0.85;
+      line-height: 1;
+    }
+
+    .store-btn .big {
+      font-size: 1.15rem;
+      font-weight: bold;
+      line-height: 1.1;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero p {
+        font-size: 1.1rem;
+      }
+
+      .buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .store-btn {
+        width: 100%;
+        max-width: 300px;
+      }
     }
 
     /* Our Games section */
@@ -228,26 +313,74 @@
     /* Services */
     .services-section {
       padding: 4rem 2rem;
+      background: #fafbfc;
     }
 
     .services-grid {
       display: grid;
-      gap: 1.2rem;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       max-width: 1000px;
       margin: 0 auto;
     }
 
     .service-card {
-      padding: 1.1rem;
-      border-radius: 12px;
-      background: #FFF5F8;
+      background: linear-gradient(135deg, #fff5f8 60%, #f0f8ff 100%);
+      border-radius: 20px;
+      box-shadow: 0 4px 24px rgba(255, 140, 198, 0.08), 0 1.5px 6px rgba(42, 71, 89, 0.06);
       text-align: center;
-      transition: background .2s;
+      padding: 2.2rem 1.2rem 1.5rem 1.2rem;
+      transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+      position: relative;
+      overflow: hidden;
     }
 
     .service-card:hover {
-      background: #FFECF4;
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 8px 32px rgba(255, 140, 198, 0.16), 0 3px 12px rgba(42, 71, 89, 0.10);
+      background: linear-gradient(135deg, #ffe0ef 60%, #e6e6ff 100%);
+    }
+
+    .service-icon {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 1.1rem auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff5f8;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(255, 140, 198, 0.10);
+      overflow: hidden;
+    }
+
+    .service-icon img {
+      width: 90%;
+      height: 90%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .service-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #2A4759;
+    }
+
+    .service-card p {
+      font-size: 1.05rem;
+      color: #555;
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 600px) {
+      .services-section {
+        padding: 2.5rem 0.5rem;
+      }
+      .service-card {
+        padding: 1.5rem 0.7rem 1.1rem 0.7rem;
+      }
     }
 
     /* Footer */
@@ -264,12 +397,6 @@
       text-decoration: none;
     }
 
-    @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
-    }
-
     /* New CSS for .store-steam */
     .store-steam {
       background: #171a21;
@@ -282,6 +409,238 @@
     .store-btn,
     .store-btn * {
       text-decoration: none !important;
+    }
+
+    .footer-modern {
+      background: #181a20;
+      color: #fff;
+      padding: 2.5rem 0 1.5rem 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .footer-logo .logo-text {
+      font-size: 2.1rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      line-height: 1.1;
+      color: #fff;
+    }
+    .footer-contact {
+      min-width: 220px;
+      margin-top: 0.5rem;
+    }
+    .footer-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+    .footer-email {
+      font-size: 1rem;
+      color: #bfc4d1;
+    }
+    .footer-email a {
+      color: #fff;
+      text-decoration: underline;
+      margin-left: 0.5rem;
+    }
+    .footer-social {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      margin-top: 0.5rem;
+    }
+    .footer-social-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      background: #fff;
+      border-radius: 8px;
+      transition: box-shadow 0.18s, transform 0.18s;
+      box-shadow: 0 2px 8px #0001;
+    }
+    .footer-social-icon img {
+      width: 26px;
+      height: 26px;
+      object-fit: contain;
+      display: block;
+    }
+    .footer-social-icon:hover {
+      box-shadow: 0 4px 16px #ff8cc655, 0 2px 8px #0002;
+      transform: translateY(-3px) scale(1.08);
+    }
+    @media (max-width: 900px) {
+      .footer-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+      }
+      .footer-social {
+        margin-top: 1.2rem;
+      }
+    }
+
+    .footer-bar {
+      background: #181a20;
+      color: #fff;
+      padding: 1.2rem 0 1.2rem 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .footer-bar-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      font-size: 1.08rem;
+      flex-wrap: wrap;
+    }
+    .footer-bar-inner span {
+      color: #fff;
+      opacity: 0.92;
+      letter-spacing: 0.5px;
+    }
+    .footer-link {
+      color: #fff;
+      opacity: 0.92;
+      text-decoration: none;
+      transition: color 0.18s, opacity 0.18s;
+    }
+    .footer-link:hover {
+      color: #FF8CC6;
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      background: #181a20;
+      color: #fff;
+      padding: 3.5rem 0 2.5rem 0;
+    }
+    .contact-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .contact-logo .logo-text {
+      font-size: 2.1rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      line-height: 1.1;
+      color: #fff;
+    }
+    .contact-info {
+      min-width: 220px;
+      margin-top: 0.5rem;
+    }
+    .contact-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+    .contact-email {
+      font-size: 1rem;
+      color: #bfc4d1;
+    }
+    .contact-email a {
+      color: #fff;
+      text-decoration: underline;
+      margin-left: 0.5rem;
+    }
+    .contact-social {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      margin-top: 0.5rem;
+    }
+    .contact-social-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      background: #fff;
+      border-radius: 8px;
+      transition: box-shadow 0.18s, transform 0.18s;
+      box-shadow: 0 2px 8px #0001;
+    }
+    .contact-social-icon img {
+      width: 26px;
+      height: 26px;
+      object-fit: contain;
+      display: block;
+    }
+    .contact-social-icon:hover {
+      box-shadow: 0 4px 16px #ff8cc655, 0 2px 8px #0002;
+      transform: translateY(-3px) scale(1.08);
+    }
+    .footer-divider {
+      border: none;
+      border-top: 1px solid #23242a;
+      margin: 0;
+    }
+    .footer-bar {
+      background: #181a20;
+      color: #fff;
+      padding: 1.2rem 0 1.2rem 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .footer-bar-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      font-size: 1.08rem;
+      flex-wrap: wrap;
+    }
+    .footer-bar-inner span {
+      color: #fff;
+      opacity: 0.92;
+      letter-spacing: 0.5px;
+    }
+    .footer-link {
+      color: #fff;
+      opacity: 0.92;
+      text-decoration: none;
+      transition: color 0.18s, opacity 0.18s;
+    }
+    .footer-link:hover {
+      color: #FF8CC6;
+      opacity: 1;
+      text-decoration: underline;
+    }
+    @media (max-width: 900px) {
+      .contact-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+      }
+      .contact-social {
+        margin-top: 1.2rem;
+      }
+      .footer-bar-inner {
+        flex-direction: column;
+        gap: 1rem;
+      }
     }
   </style>
 </head>
@@ -296,16 +655,36 @@
         <li><a href="#hero">Home</a></li>
         <li><a href="#games">Games</a></li>
         <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact Us</a></li>
       </ul>
     </nav>
   </header>
 
   <!-- Hero Section -->
   <section id="hero" class="hero">
-    <h1>We Build Sweet &amp; Addictive Games</h1>
-    <p>An indie studio specializing in casual &amp; hyper-casual mobile games.</p>
-    <div class="buttons">
-
+    <div class="hero-content">
+      <h1>We Build Sweet &amp; Addictive Games</h1>
+      <p>An indie studio specializing in casual &amp; hyper-casual mobile games.</p>
+      <div class="buttons">
+        <a href="https://play.google.com/store/apps/dev?id=8977147321764398274" class="store-btn googleplay" target="_blank">
+          <span class="icon">
+            <img src="images/play_store_app_icon.svg" alt="Google Play" style="width:32px;height:32px;object-fit:contain;display:block;"/>
+          </span>
+          <span class="text">
+            <span class="small">VISIT US AT</span>
+            <span class="big">Play Store</span>
+          </span>
+        </a>
+        <a href="https://apps.apple.com/es/developer/nhat-minh-nguyen/id1618915591" class="store-btn appstore" target="_blank">
+          <span class="icon">
+            <img src="images/app store_apps_icon.svg" alt="App Store" style="width:32px;height:32px;object-fit:contain;display:block;"/>
+          </span>
+          <span class="text">
+            <span class="small">VISIT US AT</span>
+            <span class="big">App Store</span>
+          </span>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -464,18 +843,60 @@
         </div>
         <div class="info">
           <h3>LyokoVR</h3>
-          <p>LyokoVR is a VR fanmade game continue the story after X.A.N.A has been destroyed by the Multi-Agent
-            Program. Now the team mission is stopping X.A.N.A gain its power again and bring Aelita's father back.</p>
+          <p>LyokoVR is a VR fanmade game continue the story after X.A.N.A has been destroyed by the Multi-Agent Program. Now the team mission is stopping X.A.N.A gain its power again and bring Aelita's father back.</p>
         </div>
         <div class="store-buttons">
           <a href="https://store.steampowered.com/app/1735860/LyokoVR/" class="store-btn steam" target="_blank">
             <span class="icon">
-              <img src="images/steam_icon.svg" alt="Steam"
-                style="width:32px;height:32px;object-fit:contain;display:block;" />
+              <img src="images/steam_icon.svg" alt="Steam" style="width:32px;height:32px;object-fit:contain;display:block;"/>
             </span>
             <span class="text">
               <span class="small">GET IT ON</span>
               <span class="big">Steam</span>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Dreamcatcher: Portal To Worlds -->
+      <div class="game-card">
+        <div class="img-wrapper">
+          <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple122/v4/6b/a4/2b/6ba42b92-6171-4733-4cea-0b1e66cad34a/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/230x0w.webp" alt="Dreamcatcher: Portal To Worlds">
+        </div>
+        <div class="info">
+          <h3>Dreamcatcher: Portal To Worlds</h3>
+          <p>Let's traveling between worlds through portals by dreaming and gathering different cool stuffs.</p>
+        </div>
+        <div class="store-buttons">
+          <a href="https://apps.apple.com/es/app/dreamcatcher-portal-to-worlds/id1619757419" class="store-btn appstore" target="_blank">
+            <span class="icon">
+              <img src="images/app store_apps_icon.svg" alt="App Store" style="width:32px;height:32px;object-fit:contain;display:block;"/>
+            </span>
+            <span class="text">
+              <span class="small">Download on the</span>
+              <span class="big">App Store</span>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Owow Cafe -->
+      <div class="game-card">
+        <div class="img-wrapper">
+          <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple122/v4/a0/f5/66/a0f56609-2e63-6988-0ac8-a04e49ec2933/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/230x0w.webp" alt="Owow Cafe">
+        </div>
+        <div class="info">
+          <h3>Owow Cafe</h3>
+          <p>Let's find so many cool recipes and serve those awesome drinks!</p>
+        </div>
+        <div class="store-buttons">
+          <a href="https://apps.apple.com/es/app/owow-cafe/id1629290332" class="store-btn appstore" target="_blank">
+            <span class="icon">
+              <img src="images/app store_apps_icon.svg" alt="App Store" style="width:32px;height:32px;object-fit:contain;display:block;"/>
+            </span>
+            <span class="text">
+              <span class="small">Download on the</span>
+              <span class="big">App Store</span>
             </span>
           </a>
         </div>
@@ -489,28 +910,74 @@
     <h2 class="section-title">Services</h2>
     <div class="services-grid">
       <div class="service-card">
+        <div class="service-icon">
+          <img src="images/services/game_design.png" alt="Game Design" />
+        </div>
         <h3>Game Design</h3>
-        <p>Concept, mechanics &amp; prototyping.</p>
+        <p>From the spark of an idea to a fully playable prototype, our Game Design service covers every step of your game's creative journey. We'll collaborate closely to define your core loop, craft balanced mechanics, and build rapid proof-of-concepts—ensuring your vision not only feels fun but also keeps players coming back for more. Whether you need level flow, progression systems, or feature roadmaps, we'll help you design an experience that delights and engages.</p>
       </div>
       <div class="service-card">
+        <div class="service-icon">
+          <img src="images/services/ui_ux.png" alt="UI/UX & 2D Art" />
+        </div>
         <h3>UI/UX &amp; 2D Art</h3>
-        <p>Icons, sprites &amp; animations.</p>
+        <p>First impressions matter—so we blend intuitive UX with beautiful 2D art to create interfaces that are as delightful as they are easy to navigate. Our artists design custom icons, sprites, menus and animations, all unified by a consistent visual language. From wireframes to pixel-perfect assets, we ensure your game's look and feel not only communicates clearly but also amplifies your brand's unique style and keeps players immersed.</p>
       </div>
       <div class="service-card">
+        <div class="service-icon">
+          <img src="images/services/unity.png" alt="Unity Development" />
+        </div>
         <h3>Unity Development</h3>
-        <p>C# scripting &amp; optimization.</p>
+        <p>Power your game with solid, high-performance Unity code. Our developers write clean C# scripts, architect modular systems, and optimize memory and draw calls for smooth frame-rates on any device. We'll integrate custom tools, build automated pipelines for multi-platform deployment, and solve tricky performance bottlenecks—so you can focus on features while we guarantee rock-solid stability and top-tier technical polish.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <img src="images/services/up_store.png" alt="Store Publishing & Optimization" />
+        </div>
+        <h3>Store Publishing &amp; Optimization</h3>
+        <p>Navigate the complexities of Google Play and the Apple App Store with confidence. We handle everything from developer-account setup and app metadata localization to policy compliance and A/B testing of store assets. Our goal is to craft eye-catching icons, screenshots and descriptions that boost visibility, increase install conversion, and position your game for success in any region's top charts.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <img src="images/services/iaa_iap.png" alt="Ads & IAP Integration" />
+        </div>
+        <h3>Ads &amp; IAP Integration</h3>
+        <p>Maximize your revenue without compromising player experience. We'll implement and configure in-app advertising (Unity Ads, LevelPlay, AdMob, etc.) alongside seamless In-App Purchase flows (consumables, subscriptions, bundles). From choosing the right ad formats and frequency caps to designing purchase UI and handling platform receipts, we'll tailor a monetization strategy that drives profitability while keeping engagement high.</p>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 CoolKats Studio</p>
-    <div class="social">
-      <a href="#">FB</a>
-      <a href="#">TW</a>
-      <a href="#">IG</a>
-      <a href="#">LI</a>
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="contact-container">
+      <div class="contact-logo">
+        <span class="logo-text">COOLKATS<br>STUDIO</span>
+      </div>
+      <div class="contact-info">
+        <div class="contact-title">Write us</div>
+        <div class="contact-email">
+          <b>Email</b> <a href="mailto:coolkats.it@gmail.com">coolkats.it@gmail.com</a>
+        </div>
+      </div>
+      <div class="contact-social">
+        <a href="https://www.facebook.com/share/1EqwUoEfnE/?mibextid=wwXIfr" target="_blank" class="contact-social-icon">
+          <img src="images/social/4202110_facebook_logo_social_social media_icon.png" alt="Facebook" />
+        </a>
+        <a href="https://youtube.com/@cool.kats.studio?sub_confirmation=1" target="_blank" class="contact-social-icon">
+          <img src="images/social/317714_video_youtube_icon.png" alt="YouTube" />
+        </a>
+        <a href="https://www.tiktok.com/@coolkats.coconut?_t=ZS-8wZ98t7r82E&_r=1" target="_blank" class="contact-social-icon">
+          <img src="images/social/4362958_tiktok_logo_social media_icon.png" alt="TikTok" />
+        </a>
+      </div>
+    </div>
+  </section>
+  <hr class="footer-divider"/>
+  <footer class="footer-bar">
+    <div class="footer-bar-inner">
+      <span>© COOLKATS STUDIO, 2025</span>
+      <!-- <a href="#" class="footer-link">Privacy Policy</a>
+      <a href="#" class="footer-link">Terms of Use</a> -->
     </div>
   </footer>
 
