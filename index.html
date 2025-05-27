@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="images/logo/logo.png" />
   <title>CoolKats Studio</title>
   <style>
     /* Reset & basic */
@@ -29,7 +30,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
-      background: rgba(255, 255, 255, 0.9);
+      background: #0e111a;
       backdrop-filter: blur(5px);
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       z-index: 100;
@@ -38,6 +39,14 @@
     header .logo {
       font-size: 1.5rem;
       font-weight: bold;
+      color: #fff;
+      display: flex;
+      align-items: center;
+    }
+    header .logo img {
+      height: 62.4px;
+      width: auto;
+      display: block;
     }
 
     nav ul {
@@ -47,7 +56,7 @@
     }
 
     nav a {
-      color: inherit;
+      color: #fff;
       text-decoration: none;
     }
 
@@ -538,12 +547,8 @@
       gap: 2.5rem;
       flex-wrap: wrap;
     }
-    .contact-logo .logo-text {
-      font-size: 2.1rem;
-      font-weight: bold;
-      letter-spacing: 1px;
-      line-height: 1.1;
-      color: #fff;
+    .contact-logo {
+      /* No extra CSS needed for image logo here */
     }
     .contact-info {
       min-width: 220px;
@@ -649,7 +654,7 @@
 
   <!-- Header -->
   <header>
-    <div class="logo">🍬 CoolKats Studio</div>
+    <div class="logo"><a href="#hero"><img src="images/logo/logo_navigation_bar.png" alt="CoolKats Studio Logo" /></a></div>
     <nav>
       <ul>
         <li><a href="#hero">Home</a></li>
@@ -951,7 +956,7 @@
   <section id="contact" class="contact-section">
     <div class="contact-container">
       <div class="contact-logo">
-        <span class="logo-text">COOLKATS<br>STUDIO</span>
+        <img src="images/logo/logo_navigation_bar.png" alt="CoolKats Studio Logo" style="height:93.6px;width:auto;display:block;" />
       </div>
       <div class="contact-info">
         <div class="contact-title">Write us</div>
