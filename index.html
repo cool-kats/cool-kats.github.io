@@ -618,6 +618,37 @@
         gap: 0.8rem;
       }
     }
+    @media (max-width: 900px) {
+  .games-grid {
+    grid-template-columns: 1fr;
+  }
+  .tool-card {
+    grid-template-columns: 1fr;
+  }
+  .tool-badges {
+    justify-items: start;
+  }
+}
+
+/* Fix tool thumbnail sizing (prevents oversized image) */
+.tool-thumb{
+  width: 100%;
+  max-width: 360px;
+  height: 210px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #0f121a;
+  border: 1px solid rgba(42,71,89,0.12);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+}
+
+.tool-thumb img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
   </style>
 </head>
 
